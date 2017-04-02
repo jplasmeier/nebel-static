@@ -35,6 +35,7 @@
   </div>
 </nav>
 <div id='map'></div>
+<div class='map-overlay' id='datasets'></div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiamFtZXNob2NoYWRlbCIsImEiOiJjaXowM21qNDAwNHoyMzJwaDlva3lsM2M2In0.bXfKxpQtV8rBBge6IBmfHA';
 
@@ -57,7 +58,7 @@ var geojson = {
 var map = new mapboxgl.Map({
   container: 'map', // container id
   style: 'mapbox://styles/mapbox/light-v9',
-  center: [-81.608053, 41.506833],
+  center: [0, 49], //[-81.608053, 41.506833],
   zoom: 12
   // to see what an overlay might look like, use the following line:
   // style: 'mapbox://styles/jameshochadel/ciz03wwup00002rqbdxpaymwc'
@@ -69,7 +70,7 @@ map.on('load', function() {
     type: 'symbol',
     source: {
       type: 'geojson',
-      data: geojson
+      data: 'http://127.0.0.1:8888/queries/1/'
       // in real project, use API url
     },
     layout: {
